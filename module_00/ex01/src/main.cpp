@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 02:12:02 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/02 22:26:41 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/02 22:57:51 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(void)
 	{
 		input.clear();
 		std::cout << "PhoneBook> ";
+		std::cin >> std::ws;
 		if (!std::getline(std::cin, input) || std::cin.fail())
 			return (std::cout << std::endl, -1);
-		std::cout << "\n" << (int)input[0];
 		if (input == "ADD")
 			pb.add_contact();
 		else if (input == "SEARCH")

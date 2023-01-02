@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 02:24:12 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/02 22:14:50 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/02 23:00:46 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int	PhoneBook::get_nb_contact() const
 void	PhoneBook::add_contact(void)
 {
 	static int	index;
-	this->contacts[index % 8].set_atr(index);
-	this->set_nb_contact((this->get_nb_contact() + 1) % 8);
+
+	this->contacts[index % 8].set_atr(index % 8);
+	if (this->get_nb_contact() < 8)
+		this->set_nb_contact((this->get_nb_contact() + 1));
 	index++;
 }
 
@@ -58,6 +60,8 @@ int	PhoneBook::get_index() const
 	{
 		std::cout << "Give the contact's index: ";
 		std::cin >> index;
+		if (std::cin.eof())
+			return (-1);
 		if (std::cin.good() && (index >= 0 && index <= 7)
 			&& index < this->get_nb_contact())
 			valid = true;
