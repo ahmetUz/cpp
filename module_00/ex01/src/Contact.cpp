@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 02:37:03 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/02 03:28:33 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/02 17:37:15 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,28 @@ Contact::~Contact()
 
 std::string	Contact::get_input(std::string str)
 {
-	std::string	buf;
+	std::string	buf = "";
+	bool		valid = false;
 
 	if (std::cin.fail())
 		return (buf);
-	std::cout << str;
-	std::getline(std::cin, buf);
-	std::cout << std::endl;
+	while (!valid)
+	{
+		std::cout << str;
+		std::getline(std::cin, buf);
+		if (std::cin.good() && !buf.empty())
+		{
+			std::cout << std::endl;
+			valid = true;
+		}
+		else
+		{
+			if (std::cin.fail())
+				return (buf);
+			std::cin.clear();
+			std::cout << "Invalid input retry!" << std::endl;
+		}
+	}
 	return (buf);
 }
 
