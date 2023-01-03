@@ -6,7 +6,7 @@
 #    By: auzun <auzun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/02 02:05:03 by auzun             #+#    #+#              #
-#    Updated: 2023/01/03 10:57:16 by auzun            ###   ########.fr        #
+#    Updated: 2023/01/03 21:31:02 by auzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ endif
 #                                   TARGETS                                    #
 #==============================================================================#
 
-NAME = Brainz
+NAME = HumanAttack
 
 #==============================================================================#
 #                                   COMMANDS                                   #
@@ -85,17 +85,17 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.cpp $(HEAD_NAME)
 	$(CC) $(CFLAGS) $(DFLAGS) $(MEM) $(INC) -c $< -o $@ -g
 
 $(NAME) : $(OBJ)
-	echo "$(YELLOW)Making Brainz$(END)"
+	echo "$(YELLOW)Making HumanAttack$(END)"
 	$(CC) $(CFLAGS) $(OBJ) $(INC) $(MEM) -o $(NAME) -g
 	echo "$(GREEN)Done$(END)"
 
 clean :
-	echo "$(PURPLE)Cleaning Brainz's objects...$(END)"
+	echo "$(PURPLE)Cleaning HumanAttack's objects...$(END)"
 	$(RM)r $(OBJ_DIR)
 	echo "$(GREEN)Done$(END)"
 
 fclean : clean
-	echo "$(PURPLE)Cleaning Brainz...$(END)"
+	echo "$(PURPLE)Cleaning HumanAttack...$(END)"
 	$(RM) $(NAME)
 	echo "$(GREEN)Done$(END)"
 
