@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 10:36:57 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/03 10:53:15 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/03 21:33:11 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class HumanA
 	private:
 		std::string _name;
 		Weapon&		_weapon;
-		HumanA();
 	public:
 		HumanA(std::string name, Weapon& Weapon);
 		~HumanA();
