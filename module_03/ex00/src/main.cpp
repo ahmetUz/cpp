@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:28:14 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/06 20:29:08 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/06 20:35:37 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	ClapTrap clap("Ash");
-	clap.attack("Staff");
+	ClapTrap clap("GOKU");
+	clap.attack("Fousouley");
 	return (0);
 }
