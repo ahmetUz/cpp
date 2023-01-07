@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:29:53 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/04 00:14:13 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/07 21:38:37 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ void	Harl::complain( std::string level)
 	{
 		case 0:
 			this->debug();
-			break;
+			__attribute__((fallthrough));
 		case 1:
 			this->info();
-			break;
+			__attribute__((fallthrough));
 		case 2:
 			this->warning();
-			break;
+			__attribute__((fallthrough));
 		case 3:
 			this->error();
 			break;
