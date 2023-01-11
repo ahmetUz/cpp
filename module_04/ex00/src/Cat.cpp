@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 06:19:41 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 06:47:16 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/11 13:40:35 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@ Cat::Cat() : Animal("Cat")
 Cat::~Cat(void)
 {
 	std::cout << "[Cat destructor has been called]" << std::endl;
+}
+
+Cat::Cat(const Cat &rhs): Animal(rhs)
+{
+	std::cout << "[Cat copy constructor has been called !]" << std::endl;
+}
+
+Cat&	Cat::operator=(const Cat &rhs)
+{
+	std::cout << "{Cat assignement operator has been called}" << std::endl;
+	if ( this != &rhs )
+	{
+		this->_type = rhs.getType();
+	}
+	return (*this);
 }
 
 void	Cat::makeSound(void) const
