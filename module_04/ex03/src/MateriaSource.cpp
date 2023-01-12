@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/12 06:02:30 by auzun             #+#    #+#             */
+/*   Updated: 2023/01/12 06:05:08 by auzun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MateriaSource.hpp"
 
 /*
@@ -6,10 +18,13 @@
 
 MateriaSource::MateriaSource()
 {
+	for (int i = 0; i < 4; i++)
+		this->materia[i] = NULL;
 }
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
+	*this = src;
 }
 
 
@@ -19,8 +34,13 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 
 MateriaSource::~MateriaSource()
 {
-}
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->materia[i])
+			delete this->materia[i];
+	}
 
+}
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
@@ -28,23 +48,38 @@ MateriaSource::~MateriaSource()
 
 MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	return *this;
+	if ( this != &rhs )
+	{
+		for (int i = 0; i < 4; i++)
+			this->materia[i] = rhs.materia[i];
+	}
+	return (*this);
 }
-
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+void						MateriaSource::learnMateria(AMateria* m)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (!this->materia[i])
+		{
+			materia[i] = m;
+			return ;
+		}
+	}
+}
+
+AMateria*					MateriaSource::createMateria(std::string const & type)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->materia[i] && this->materia[i]->getType() == type)
+			return (this->materia[i]->clone());
+	}
+	return (NULL);
+}
 
 
 /*

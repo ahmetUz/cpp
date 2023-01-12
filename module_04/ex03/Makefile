@@ -6,7 +6,7 @@
 #    By: auzun <auzun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/02 02:05:03 by auzun             #+#    #+#              #
-#    Updated: 2023/01/11 14:29:25 by auzun            ###   ########.fr        #
+#    Updated: 2023/01/12 06:00:16 by auzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ endif
 #                                   TARGETS                                    #
 #==============================================================================#
 
-NAME = Animal
+NAME = Character
 
 #==============================================================================#
 #                                   COMMANDS                                   #
@@ -59,14 +59,14 @@ OBJ_DIR = obj/
 #                                   SOURCES                                    #
 #==============================================================================#
 
-SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRC = main.cpp AMateria.cpp  Character.cpp  Cure.cpp  Ice.cpp  MateriaSource.cpp
 
 #==============================================================================#
 #                                   HEADERS                                    #
 #==============================================================================#
 
-HEAD_NAME = $(HEADER_DIR)/AAnimal.hpp $(HEADER_DIR)/Dog.hpp $(HEADER_DIR)/Cat.hpp \
-			$(HEADER_DIR)/WrongAnimal.hpp $(HEADER_DIR)/WrongCat.hpp $(HEADER_DIR)/Brain.hpp 
+HEAD_NAME = $(HEADER_DIR)/AMateria.hpp  $(HEADER_DIR)/Character.hpp  $(HEADER_DIR)/Cure.hpp \
+			 $(HEADER_DIR)/IMateriaSource.hpp  $(HEADER_DIR)/Ice.hpp  $(HEADER_DIR)/Icharacter.hpp  $(HEADER_DIR)/MateriaSource.hpp
 INC = -I./$(HEADER_DIR)
 
 #==============================================================================#
@@ -86,17 +86,17 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.cpp $(HEAD_NAME)
 	$(CC) $(CFLAGS) $(DFLAGS) $(MEM) $(INC) -c $< -o $@ -g
 
 $(NAME) : $(OBJ)
-	echo "$(YELLOW)Making Animal$(END)"
+	echo "$(YELLOW)Making Character$(END)"
 	$(CC) $(CFLAGS) $(OBJ) $(INC) $(MEM) -o $(NAME) -g
 	echo "$(GREEN)Done$(END)"
 
 clean :
-	echo "$(PURPLE)Cleaning Animal's objects...$(END)"
+	echo "$(PURPLE)Cleaning Character's objects...$(END)"
 	$(RM)r $(OBJ_DIR)
 	echo "$(GREEN)Done$(END)"
 
 fclean : clean
-	echo "$(PURPLE)Cleaning Animal...$(END)"
+	echo "$(PURPLE)Cleaning Character...$(END)"
 	$(RM) $(NAME)
 	echo "$(GREEN)Done$(END)"
 

@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:41:20 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 17:43:54 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/12 05:47:54 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "AMateria.hpp"
 # include <iostream>
+
+class AMateria;
 
 class ICharacter
 {

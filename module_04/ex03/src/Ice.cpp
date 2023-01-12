@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:45:19 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 18:48:00 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/12 05:59:17 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ AMateria	*Ice::clone() const
 
 void		Ice::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at "<< this->_type << " *" << std::endl;
+	std::cout << "* shoots an ice bolt at "<< target.getName() << " *" << std::endl;
 }
 
 /*
