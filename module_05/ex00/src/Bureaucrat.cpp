@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:37:10 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/24 19:30:17 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/25 16:32:25 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ const char *				Bureaucrat::gradeTooLowExeption::what() const throw()
 	return ("Grade is too Low!");
 }
 
-void						Bureaucrat::incrementGrad()
+void						Bureaucrat::incrementGrade()
 {
 	this->_grade--;
 	if (this->_grade < 1)
 		throw Bureaucrat::gradeTooHighExeption();
 }
 
-void						Bureaucrat::decrementGrad()
+void						Bureaucrat::decrementGrade()
 {
 	this->_grade++;
 	if (this->_grade > 150)

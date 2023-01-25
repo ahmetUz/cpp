@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:39:59 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/24 19:29:02 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/25 16:32:15 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Bureaucrat
 		Bureaucrat &		operator=( Bureaucrat const & rhs );
 		const std::string	getName() const;
 		int					getGrade() const;
-		void				incrementGrad();
-		void				decrementGrad();
+		void				incrementGrade();
+		void				decrementGrade();
 
 		class gradeTooHighExeption : public std::exception
 		{
