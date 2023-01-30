@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 06:02:30 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/12 06:05:08 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/30 21:36:27 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void						MateriaSource::learnMateria(AMateria* m)
 			return ;
 		}
 	}
+	delete m;
 }
 
 AMateria*					MateriaSource::createMateria(std::string const & type)
