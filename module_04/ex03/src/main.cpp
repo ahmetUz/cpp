@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 05:39:44 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/30 21:31:07 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/31 16:13:00 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,21 @@ int main( void )
 	std::cout << std::endl;
 
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
+	tmp = src->createMateria("Ice");
 	me->equip(tmp);
 	std::cout << std::endl;
 
-	tmp = src->createMateria("cure");
+	tmp = src->createMateria("Ice");
 	me->equip(tmp);
 	std::cout << std::endl;
 
-	me->equip(src->createMateria("fire"));
+	me->equip(src->createMateria("Ice"));
 	std::cout << std::endl;
 
-	me->equip(src->createMateria("lightning"));
+	me->equip(src->createMateria("cure"));
 	std::cout << std::endl;
 
-	me->equip(src->createMateria("ice"));
+	me->equip(src->createMateria("cure"));
 
 	std::cout << std::endl;
 	std::cout << "===================================" << std::endl;

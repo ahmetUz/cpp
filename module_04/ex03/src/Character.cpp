@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 04:48:16 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/12 05:58:17 by auzun            ###   ########.fr       */
+/*   Updated: 2023/01/31 16:14:57 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,13 @@ Character &				Character::operator=( Character const & rhs )
 void				Character::equip(AMateria* m)
 {
 	int	i = 0;
-	for (i = 0; i <= 4 && this->_inventory[i]; i++);
+
+	while (i < 4 && this->_inventory[i])
+		i++;
 	if (i == 4)
 	{
 		std::cout << this->_name << "'s inventory is full !" << std::endl;
+		delete m;
 		return ;
 	}
 	this->_inventory[i] = m;

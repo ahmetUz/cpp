@@ -53,11 +53,6 @@ std::string const & AMateria::getType() const
 	return (this->_type);
 }
 
-AMateria*			AMateria::clone() const
-{
-	return ((AMateria*)this);
-}
-
 void				AMateria::use(ICharacter& target)
 {
 	std::cout << "AMateria --> "<< this->_type << " used by " << target.getName() << std::endl;
