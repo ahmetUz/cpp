@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:08:55 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/03 10:02:31 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/08 15:04:46 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,19 @@
 
 #define N 10
 
-int main( void ) {
-	Zombie *z = zombieHorde(N, "zombi");
+int main(void)
+{
+	Zombie *zombies = zombieHorde(0, "pas bien");
+	std::cout << std::endl;
 
-	for (size_t i = 0; i < N; i++) {
-		z[i].announce();
+	zombies = zombieHorde(3, "VROUM VROUM LA TUTURE");
+	for (int i = 0; i < 3; i++)
+	{
+		std::cout << "Z" << i << " "; 
+		zombies[i].announce();
 	}
+	std::cout << std::endl;
 
-	delete [] z;
+	delete [] zombies;
 	return (0);
 }
