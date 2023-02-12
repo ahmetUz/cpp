@@ -5,11 +5,10 @@
 #                                                     +:+ +:+         +:+      #
 #    By: auzun <auzun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/02 02:05:03 by auzun             #+#    #+#              #
-#    Updated: 2023/01/02 22:33:27 by auzun            ###   ########.fr        #
+#    Created: 2023/02/12 19:10:54 by auzun             #+#    #+#              #
+#    Updated: 2023/02/12 19:10:57 by auzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 # Compilation flags
 ifeq ($(DMEM),1)
@@ -30,7 +29,7 @@ NAME = PhoneBook
 #                                   COMMANDS                                   #
 #==============================================================================#
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 DFLAGS = -MMD
 MKDIR = mkdir -p
