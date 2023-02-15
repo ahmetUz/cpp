@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 09:02:18 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/07 09:06:59 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 12:26:03 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ class FragTrap : public ClapTrap
 		FragTrap();
 	public:
 		FragTrap(std::string name);
+		FragTrap(const FragTrap &rhs);
 		~FragTrap();
 
+		FragTrap	&operator=(const FragTrap &rhs);
+		
 		void highFivesGuys(void);
 };
 

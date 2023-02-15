@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 09:27:38 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/07 10:05:11 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 13:51:22 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,29 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), Fra
 {
 	this->_name = name;
 	this->ClapTrap::_name = name + "_clap_name";
-	FragTrap::_hitPoints = 100;
-	ScavTrap::_energyPoints = 50;
-	FragTrap::_attackDamage = 30;
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 30;
 	std::cout << "diamondtrap " << this->_name << " has been created!" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap &rhs) : ClapTrap(rhs), ScavTrap(rhs), FragTrap(rhs)
+{
+	std::cout << "diamondtrap copy " << this->_name << " has been created!" << std::endl;
+	*this = rhs;
 }
 
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "diamondtrap " << this->_name << " has been destructed!" << std::endl;
+}
+
+DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& rhs)
+{
+	_hitPoints = rhs._hitPoints;
+	_energyPoints = rhs._energyPoints;
+	_attackDamage = rhs._attackDamage;
+	return (*this);
 }
 
 void	DiamondTrap::whoAmI(void)

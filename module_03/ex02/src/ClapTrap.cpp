@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:58:55 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/06 20:31:26 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 14:06:39 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap &rhs)
 
 void	ClapTrap::attack(const std::string& target)
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << "claptrap " << this->_name << " is dead!" << std::endl;
+		return ;
+	}
 	if (this->_energyPoints <= 0)
 	{
 		std::cout << "claptrap " << this->_name << " need energy to attack!" << std::endl;
@@ -50,8 +55,14 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << "claptrap " << this->_name << " is dead!" << std::endl;
+		return ;
+	}
 	if (this->_hitPoints <= amount)
 	{
+		this->_hitPoints = 0;
 		std::cout << "claptrap " << this->_name << " is dead!" << std::endl;
 		return ;
 	}
@@ -61,6 +72,11 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << "claptrap " << this->_name << " is dead!" << std::endl;
+		return ;
+	}
 	if (this->_energyPoints <= 0)
 	{
 		std::cout << "claptrap " << this->_name << " need energy to repair!" << std::endl;

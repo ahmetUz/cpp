@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:36:57 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/06 20:51:54 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 12:19:56 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ class ScavTrap : public ClapTrap
 		ScavTrap();
 	public:
 		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap &rhs);
 		~ScavTrap();
+
+		ScavTrap	&operator=(const ScavTrap &rhs);
 		
 		void attack(const std::string& target);
 		void guardGate();

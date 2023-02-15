@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:44:12 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/06 20:57:06 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 14:12:26 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,27 @@ ScavTrap::~ScavTrap()
 	std::cout << "scavtrap " << this->_name << " has been destructed!" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &rhs) : ClapTrap(rhs)
+{
+	std::cout << "ScavTrap an copy of " << rhs._name << " has been created!" << std::endl;
+	*this = rhs;
+}
+
+ScavTrap&	ScavTrap::operator=(const ScavTrap &rhs)
+{
+	this->_hitPoints = rhs._hitPoints;
+	this->_energyPoints = rhs._energyPoints;
+	this->_attackDamage = rhs._attackDamage;
+	return (*this);
+}
+
 void	ScavTrap::attack(const std::string& target)
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << "claptrap " << this->_name << " is dead!" << std::endl;
+		return ;
+	}
 	if (this->_energyPoints <= 0)
 	{
 		std::cout << "scavetrap " << this->_name << " need energy to attack!" << std::endl;
@@ -39,5 +58,10 @@ void	ScavTrap::attack(const std::string& target)
 
 void	ScavTrap::guardGate()
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << "claptrap " << this->_name << " is dead!" << std::endl;
+		return ;
+	}
 	std::cout <<"scavetrap " << this->_name << " passed in Gate keeper MODDEEE!" << std::endl;
 }

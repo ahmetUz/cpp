@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 09:21:29 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/07 10:05:21 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 12:29:40 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ class DiamondTrap : public ScavTrap, public FragTrap
 	
 	public:
 		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap &rhs);
 		~DiamondTrap();
+
+		DiamondTrap	&operator=(const DiamondTrap &rhs);
 	
 	using	ScavTrap::attack;
 	void	whoAmI();
