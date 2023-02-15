@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 06:19:41 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 14:19:53 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 15:04:39 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ Cat&	Cat::operator=(const Cat &rhs)
 void	Cat::makeSound(void) const
 {
 	std::cout << "MIAW !" << std::endl;
+}
+
+void	Cat::wants( void ) const
+{
+	std::cout << getType() << " wants " <<  _brain->getIdea(rand() % 100) << std::endl;
 }

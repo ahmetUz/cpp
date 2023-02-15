@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 06:13:54 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 14:29:56 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 15:15:23 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ Dog&	Dog::operator=(const Dog &rhs)
 void	Dog::makeSound(void) const
 {
 	std::cout << "WOAF !" << std::endl;
+}
+
+void	Dog::wants( void ) const
+{
+	std::cout << getType() << " wants " <<  _brain->getIdea(rand() % 100) << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 05:44:58 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 06:45:41 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 14:58:26 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Animal
 	
 		std::string		getType(void) const;
 		virtual void	makeSound(void) const;
+		virtual void	wants(void) const;
 };
 
 #endif

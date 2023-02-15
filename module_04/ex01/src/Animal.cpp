@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 05:55:32 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 06:42:30 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 14:58:54 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,8 @@ std::string	Animal::getType(void) const
 void	Animal::makeSound(void) const
 {
 	std::cout << "{Animal makeSound() has been called}" << std::endl;
+}
+
+void	Animal::wants( void ) const
+{
 }

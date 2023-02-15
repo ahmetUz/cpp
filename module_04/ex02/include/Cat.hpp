@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 06:18:21 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 14:30:51 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 15:11:58 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Cat : public AAnimal
 		Cat&	operator=(const Cat &rhs);
 
 		void	makeSound(void) const;
+		void	wants(void) const;
 };
 
 #endif

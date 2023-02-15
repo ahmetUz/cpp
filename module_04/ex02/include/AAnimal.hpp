@@ -35,6 +35,7 @@ class AAnimal
 	
 		std::string		getType(void) const;
 		virtual void	makeSound(void) const = 0;
+		virtual void	wants(void) const;
 };
 
 #endif

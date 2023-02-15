@@ -52,3 +52,7 @@ void	AAnimal::makeSound(void) const
 {
 	std::cout << "{AAnimal makeSound() has been called}" << std::endl;
 }
+
+void	AAnimal::wants( void ) const
+{
+}

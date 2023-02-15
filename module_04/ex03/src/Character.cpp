@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 04:48:16 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/31 16:14:57 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 15:27:00 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ Character::~Character()
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
-	std::cout << this->_name << "has been destroyed !" << std::endl;
+	std::cout << this->_name << " has been destroyed !" << std::endl;
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:43:52 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 13:55:57 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 15:03:06 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
 
 class Brain
 {

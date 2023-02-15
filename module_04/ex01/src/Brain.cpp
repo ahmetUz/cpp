@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:45:53 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 13:56:31 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/15 15:00:04 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,22 @@
 
 Brain::Brain()
 {
-	std::cout << "[Brain contructor has been called]" << std::endl;
+	std::cout << "[Brain] Default constructor called." << std::endl;
+	srand(time(NULL));
+	int	i = 0;
+
+	while (i < 2)
+		_ideas[i++] = "to destroy the world";
+	while (i < 10)
+		_ideas[i++] = "to burn the world";
+	while (i < 25)
+		_ideas[i++] = "to poop in the living room";
+	while (i < 40)
+		_ideas[i++] = "to be caressed";
+	while (i < 60)
+		_ideas[i++] = "to sleep";
+	while (i < 100)
+		_ideas[i++] = "to eat";
 }
 
 Brain::Brain( const Brain & rhs )
