@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:39:59 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/25 16:32:15 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/17 12:23:28 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ class Bureaucrat
 		void				incrementGrade();
 		void				decrementGrade();
 
-		class gradeTooHighExeption : public std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char * what() const throw();
 		};
-		class gradeTooLowExeption : public std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				virtual const char * what() const throw();

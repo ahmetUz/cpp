@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:01:24 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/25 19:38:42 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/18 16:22:17 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void		Form::beSigned( Bureaucrat const & br )
 {
 	if (br.getGrade() > this->_gradeToSign)
 		throw Form::GradeTooLowExeption();
-	this->_isSigned = true;
+	else
+		this->_isSigned = true;
 }
 
 const char *			Form::GradeTooHighExeption::what() const throw()

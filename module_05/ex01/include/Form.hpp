@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:01:18 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/25 19:29:28 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/18 17:10:24 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,17 @@ class Form
 
 		Form &		operator=( Form const & rhs );
 
-		class GradeTooHighExeption : public std::exception
+		class FormException : public std::exception
+		{
+			public :
+				virtual const char* what( void ) const throw() = 0;
+		};
+		class GradeTooHighExeption : public FormException
 		{
 			public:
 				virtual const char * what() const throw();
 		};
-		class GradeTooLowExeption : public std::exception
+		class GradeTooLowExeption : public FormException
 		{
 			public:
 				virtual const char * what() const throw();

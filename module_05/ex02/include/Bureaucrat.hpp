@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:39:59 by auzun             #+#    #+#             */
-/*   Updated: 2023/02/18 17:00:14 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/18 17:11:16 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,17 @@ class Bureaucrat
 		void				signForm( AForm& fr ) const;
 		void				executeForm( AForm const & form );
 
-		class GradeTooHighException : public std::exception
+		class BureaucratException : public std::exception
+		{
+			public :
+				virtual const char* what( void ) const throw() = 0;
+		};
+		class GradeTooHighException : public BureaucratException
 		{
 			public:
 				virtual const char * what() const throw();
 		};
-		class GradeTooLowException : public std::exception
+		class GradeTooLowException : public BureaucratException
 		{
 			public:
 				virtual const char * what() const throw();
