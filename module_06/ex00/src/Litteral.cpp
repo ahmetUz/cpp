@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 15:21:20 by auzun             #+#    #+#             */
-/*   Updated: 2023/02/19 21:28:04 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/19 21:45:10 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ bool	Litteral::isFloat( void ) const
 		i++;
 	for (int j(i); j < (int)_str.length() - 1; j++)
 	{
-		if (_str[i] == '.')
+		if (_str[j] == '.')
 			nbDot++;
-		if ((!std::isdigit(_str[i]) && _str[i] != '.') || nbDot > 1)
+		if ((!std::isdigit(_str[j]) && _str[j] != '.') || nbDot > 1)
 			return (false);
 	}
 	return (true);
@@ -121,11 +121,11 @@ bool	Litteral::isDouble( void ) const
 
 	if (_str[i] == '-' || _str[i] == '+')
 		i++;
-	for (int j(i); j < (int)_str.length() - 1; j++)
+	for (int j(i); j < (int)_str.length(); j++)
 	{
-		if (_str[i] == '.')
+		if (_str[j] == '.')
 			nbDot++;
-		if ((!std::isdigit(_str[i]) && _str[i] != '.') || nbDot > 1)
+		if ((!std::isdigit(_str[j]) && _str[j] != '.') || nbDot > 1)
 			return (false);
 	}
 	return (true);
@@ -137,7 +137,7 @@ void	Litteral::putChar( void ) const
 
 	if (this->isLiteral())
 		std::cout << "Impossible";
-	else if ( ((_i >= 127) || !std::isprint(_i)))
+	else if ( ((_i >= 127 || _i <= 0) || !std::isprint(_i)))
 		std::cout << "None displayable";
 	else
 		std::cout << "'" << _c << "'";
@@ -200,8 +200,8 @@ void	Litteral::putDouble( void ) const
 
 void	Litteral::putall( void ) const
 {
-	if (_type == NONE && !isLiteral())
-		std::cout << "Invalid type" << std::endl;
+	if (_type == NONE)
+		std::cout << "Unknown type" << std::endl;
 	else
 	{
 		putChar();
@@ -217,10 +217,7 @@ void	Litteral::convert(void)
 	setType();
 
 	if (_impossible)
-	{
-		std::cout << "Unknown type" << std::endl;
 		return ;
-	}
 	switch (_type)
 	{
 		case CHAR:
