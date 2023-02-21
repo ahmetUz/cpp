@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:01:24 by auzun             #+#    #+#             */
-/*   Updated: 2023/02/18 17:00:42 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/21 19:59:33 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@
 AForm::AForm():
 	_name("default"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
 {
+	std::cout << "[AForm] Default constructor" << std::endl;
 }
 
 AForm::AForm( const AForm & src ):
 	_name(src._name), _isSigned(false), _gradeToSign(src._gradeToSign), _gradeToExec(src._gradeToExec)
 {
+	std::cout << "[AForm] copy constructor" << std::endl;
 	if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
 		throw AForm::GradeTooHighExeption();
 	else if (this->_gradeToExec > 150 || this->_gradeToSign > 150)
@@ -33,6 +35,7 @@ AForm::AForm( const AForm & src ):
 AForm::AForm( std::string const name, const int gradeToSign, const int gradeToExec):
 	_name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
+	std::cout << "[AForm] constructor" << std::endl;
 	if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
 		throw AForm::GradeTooHighExeption();
 	else if (this->_gradeToExec > 150 || this->_gradeToSign > 150)
@@ -46,6 +49,7 @@ AForm::AForm( std::string const name, const int gradeToSign, const int gradeToEx
 
 AForm::~AForm()
 {
+	std::cout << "[AForm] destructor" << std::endl;
 }
 
 

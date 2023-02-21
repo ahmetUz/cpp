@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:01:24 by auzun             #+#    #+#             */
-/*   Updated: 2023/02/18 16:22:17 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/21 19:58:26 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,16 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+Form::Form():
+	_name("default"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
+{
+	std::cout << "[Form] Default constructor" << std::endl;
+}
+
 Form::Form( const Form & src ):
 	_name(src._name), _isSigned(false), _gradeToSign(src._gradeToSign), _gradeToExec(src._gradeToExec)
 {
+	std::cout << "[Form] copy constructor" << std::endl;
 	if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
 		throw Form::GradeTooHighExeption();
 	else if (this->_gradeToExec > 150 || this->_gradeToSign > 150)
@@ -28,6 +35,7 @@ Form::Form( const Form & src ):
 Form::Form( std::string const name, const int gradeToSign, const int gradeToExec):
 	_name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
+	std::cout << "[Form] constructor" << std::endl;
 	if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
 		throw Form::GradeTooHighExeption();
 	else if (this->_gradeToExec > 150 || this->_gradeToSign > 150)
@@ -41,6 +49,7 @@ Form::Form( std::string const name, const int gradeToSign, const int gradeToExec
 
 Form::~Form()
 {
+	std::cout << "[Form] destructor" << std::endl;
 }
 
 
