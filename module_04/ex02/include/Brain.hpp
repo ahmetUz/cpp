@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:43:52 by auzun             #+#    #+#             */
-/*   Updated: 2023/02/15 15:17:00 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 03:37:14 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Brain
 
 		Brain();
 		Brain( Brain const & rhs );
-		~Brain();
+		virtual ~Brain();
 
 		Brain &				operator=( Brain const & rhs );
 		std::string			getIdea(const int index) const;

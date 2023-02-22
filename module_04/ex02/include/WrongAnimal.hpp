@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 06:30:22 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 06:36:32 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 03:37:22 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class WrongAnimal
 		WrongAnimal();
 		WrongAnimal(std::string type);
 		WrongAnimal( WrongAnimal const & src );
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 
 		WrongAnimal &	operator=( WrongAnimal const & rhs );
 		

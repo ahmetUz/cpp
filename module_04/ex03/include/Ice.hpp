@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:38:28 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/12 04:47:11 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 03:37:37 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Ice : public AMateria
 
 		Ice();
 		Ice( Ice const & src );
-		~Ice();
+		virtual ~Ice();
 
 		Ice &		operator=( Ice const & rhs );
 

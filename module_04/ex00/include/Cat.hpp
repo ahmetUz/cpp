@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 06:18:21 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/11 13:31:12 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 03:34:42 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat : public Animal
 
 	public:
 		Cat();
-		~Cat();
+		virtual ~Cat();
 		Cat(const Cat &rhs);
 		Cat&	operator=(const Cat &rhs);
 

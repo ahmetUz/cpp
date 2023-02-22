@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 05:27:52 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/12 05:48:55 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 03:37:46 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class MateriaSource : public IMateriaSource
 
 		MateriaSource();
 		MateriaSource( MateriaSource const & src );
-		~MateriaSource();
+		virtual ~MateriaSource();
 
 		MateriaSource &		operator=( MateriaSource const & rhs );
 

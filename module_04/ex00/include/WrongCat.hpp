@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 06:37:44 by auzun             #+#    #+#             */
-/*   Updated: 2023/02/15 14:42:08 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 03:35:40 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat();
-		~WrongCat();
+		virtual ~WrongCat();
 		WrongCat(const WrongCat &rhs);
 		WrongCat&	operator=(const WrongCat &rhs);
 		void	makeSound(void) const;

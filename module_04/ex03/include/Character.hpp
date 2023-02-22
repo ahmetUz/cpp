@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:48:45 by auzun             #+#    #+#             */
-/*   Updated: 2023/01/12 05:57:13 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 03:37:32 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Character : public ICharacter
 	public:
 		Character( std::string const &name );
 		Character( Character const & src );
-		~Character();
+		virtual ~Character();
 
 		std::string const & getName() const;
 		void				equip(AMateria* m);
