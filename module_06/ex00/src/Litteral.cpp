@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 15:21:20 by auzun             #+#    #+#             */
-/*   Updated: 2023/02/19 21:45:10 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/23 21:57:54 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,25 +224,25 @@ void	Litteral::convert(void)
 			_c = _str[0];
 			_i = static_cast< int >(_c);
 			_f = static_cast< float >(_c);
-			_d = static_cast< float >(_c);
+			_d = static_cast< double >(_c);
 			break;
 		case INT:
 			_i = std::atoi(_str.c_str());
-			_c = static_cast< int >(_i);
+			_c = static_cast< char >(_i);
 			_f = static_cast< float >(_i);
-			_d = static_cast< float >(_i);
+			_d = static_cast< double >(_i);
 			break;
 		case FLOAT:
 			_f = std::atof(_str.c_str());
 			_i = static_cast< int >(_f);
-			_c = static_cast< float >(_f);
-			_d = static_cast< float >(_f);
+			_c = static_cast< char >(_f);
+			_d = static_cast< double >(_f);
 			break;
 		case DOUBLE:
 			_d = std::atof(_str.c_str());
 			_i = static_cast< int >(_d);
 			_f = static_cast< float >(_d);
-			_c = static_cast< float >(_d);
+			_c = static_cast< char >(_d);
 			break;
 		
 		default:
@@ -270,6 +270,8 @@ void	Litteral::setType(void)
 		_type = NONE;
 		_impossible = true;
 	}
+	else
+		_type = INF;
 	
 }
 

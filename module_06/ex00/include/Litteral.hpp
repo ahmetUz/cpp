@@ -6,7 +6,7 @@
 /*   By: auzun <auzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 15:05:23 by auzun             #+#    #+#             */
-/*   Updated: 2023/02/19 21:28:08 by auzun            ###   ########.fr       */
+/*   Updated: 2023/02/23 21:57:19 by auzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ enum	e_type
 	INT,
 	FLOAT,
 	CHAR,
-	DOUBLE
+	DOUBLE,
+	INF
 };
 
 class Litteral
