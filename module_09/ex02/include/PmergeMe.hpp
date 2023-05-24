@@ -10,7 +10,7 @@
 # include <sys/time.h>
 # include <algorithm>
 
-# define MIN_SPLIT_SIZE 1
+# define MIN_SPLIT_SIZE 100
 
 class PmergeMe
 {
@@ -36,10 +36,14 @@ class PmergeMe
 		void	insertionSort(std::vector<int>& arr, int left, int right);
 		void	merge(std::vector<int>& arr, int left, int mid, int right);
 
-		class	exception
+		class exception
 		{
 			public:
-				exception(const std::string & str) : _msg(str) {}
+				exception(const std::string & str);
+				exception( exception const & src);
+				~exception();
+
+				exception &		operator=( exception const & rhs );
 				const char* what();
 			private:
 				std::string	_msg;

@@ -4,6 +4,18 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+PmergeMe::exception::exception(const std::string & str): _msg(str) {}
+
+PmergeMe::exception::exception(PmergeMe::exception const & src): _msg(src._msg) {}
+
+PmergeMe::exception::~exception(){}
+
+PmergeMe::exception &		PmergeMe::exception::operator=( PmergeMe::exception const & rhs )
+{
+	this->_msg = rhs._msg;
+	return *this;
+}
+
 const char * PmergeMe::exception::what()
 {
 	_msg += '\n';
@@ -35,7 +47,7 @@ PmergeMe::PmergeMe(char **args)
 	double time_vec = startProcess(_vector);
 	double time_deq = startProcess(_deque);
 	std::cout << "After: ";
-	displayContent(_vector);
+	displayContent(_deque);
 	std::cout << "Time to process a range of "<< _vector.size() << " elements with std::vector " << time_vec << " seconds" << std::endl;
 	std::cout << "Time to process a range of "<< _deque.size() << " elements with std::deque " << time_deq << " seconds" << std::endl;
 }
