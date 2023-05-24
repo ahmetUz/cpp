@@ -27,7 +27,11 @@ class BitcoinExchange
 		class exception
 		{
 			public:
-				exception(const std::string & str) : _msg(str) {}
+				exception(const std::string & str);
+				exception( exception const & src);
+				~exception();
+
+				exception &		operator=( exception const & rhs );
 				const char* what();
 			private:
 				std::string	_msg;

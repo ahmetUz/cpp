@@ -5,6 +5,18 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+BitcoinExchange::exception::exception(const std::string & str): _msg(str) {}
+
+BitcoinExchange::exception::exception(BitcoinExchange::exception const & src): _msg(src._msg) {}
+
+BitcoinExchange::exception::~exception(){}
+
+BitcoinExchange::exception &		BitcoinExchange::exception::operator=( BitcoinExchange::exception const & rhs )
+{
+	this->_msg = rhs._msg;
+	return *this;
+}
+
 const char * BitcoinExchange::exception::what()
 {
 	_msg += '\n';
@@ -72,7 +84,7 @@ bool	BitcoinExchange::isValidValue(std::string value)
 bool	BitcoinExchange::isValidDate(std::string date)
 {
 	if (date.size() != 10 || atoi(date.c_str()) < 2009 ||
-		atoi(date.c_str()) > 2023 || atoi(date.c_str() + 5) < 1
+		atoi(date.c_str()) > 2022 || atoi(date.c_str() + 5) < 1
 		|| atoi(date.c_str() + 5) > 12 || atoi(date.c_str() + 8) < 1
 		||	atoi(date.c_str() + 8) > 31)
 		return false;
@@ -126,7 +138,10 @@ void	BitcoinExchange::showAmount(std::string inputDate, float inputValue)
 		it = it == _db.begin() || it == _db.end() ? it : --it;
 	}
 	if (it == _db.end())
-		throw exception("Error: too recent date -> " + inputDate);
+	{
+		std::cerr << "Error: too recent date -> " + inputDate << std::endl;
+		return ;
+	}
 	double	it_value = it->second;
 	double	result = it_value * inputValue;
 	std::cout << inputDate << " => " << inputValue << " = " << result << std::endl;
@@ -138,6 +153,7 @@ void	BitcoinExchange::parseInput()
 	std::ifstream	inputFile;
 	std::string		buffer;
 	std::string		date;
+	bool			isValid = true;
 
 	inputFile.open(_inputFileName.c_str());
 	if (inputFile.is_open() == false)
@@ -145,33 +161,55 @@ void	BitcoinExchange::parseInput()
 	std::getline(inputFile, buffer);
 	if (buffer.compare("date | value"))
 		throw exception("Error: Invalid Input file format");
-	for (size_t i = 0; std::getline(inputFile, buffer, '|'); i++)
+	for (size_t i = 0; std::getline(inputFile, buffer); i++)
 	{
-		if (buffer[buffer.size() - 1] == ' ')
-			buffer = buffer.substr(0, buffer.size() - 1);
-		if (isValidDate(buffer) == false)
-			throw exception("Error: Invalid input date -> " + buffer);
-		date = buffer;
-		std::getline(inputFile, buffer, '\n');
-		if (buffer[0] == ' ')
-			buffer.erase(0, 1);
-		float	value = strtof(buffer.c_str(), NULL);
-		if (value < 0)
-			throw exception("Error: not a positive number. -> " + buffer);
-		if (value > 1000)
-			throw exception("Error: too large a number. -> " + buffer);
-		if (isValidValue(buffer) == false)
-			throw exception("Error: Invalid Value -> " + buffer);
-		if (errno == ERANGE)
-			throw exception("Error: Invalid Value -> " + buffer);
-		try
+		std::string	tmp = buffer;
+		if (tmp.find(" |") == std::string::npos)
 		{
+			std::cerr << "Error: Invalid line format "<< std::endl;
+			isValid = false;
+		}
+		else
+			tmp = tmp.substr(0, tmp.find(" |"));
+		if (isValid && isValidDate(tmp) == false)
+		{
+			std::cerr << "Error: Invalid input date "<< std::endl;
+			isValid = false;
+		}
+		date = tmp;
+		tmp = buffer;
+		if (isValid && tmp.find("\n") == std::string::npos
+			&& tmp.find("| ") == std::string::npos)
+		{
+			std::cerr << "Error: Invalid line format "<< std::endl;
+			isValid = false;
+		}
+		else
+			tmp = tmp.substr(tmp.find("| ") + 2, tmp.find("\n") - (tmp.find("| ")));
+		float	value = strtof(tmp.c_str(), NULL);
+		if (isValid && value < 0)
+		{
+			std::cerr << "Error: not a positive number."<< std::endl;
+			isValid = false;
+		}
+		if (isValid && value > 1000)
+		{
+			std::cerr << "Error: too large a number. " << std::endl;
+			isValid = false;
+		}
+		if (isValid && isValidValue(tmp) == false)
+		{
+			std::cerr << "Error: Invalid Value" << std::endl;
+			isValid = false;
+		}
+		if (isValid && errno == ERANGE)
+		{
+			std::cerr << "Error: Invalid Value" << std::endl;
+			isValid = false;
+		}
+		if (isValid)
 			showAmount(date, value);
-		}
-		catch(exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
+		isValid = true;
 	}
 }
 
