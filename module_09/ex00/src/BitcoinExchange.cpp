@@ -194,15 +194,10 @@ void	BitcoinExchange::parseInput()
 		}
 		if (isValid && value > 1000)
 		{
-			std::cerr << "Error: too large a number. " << std::endl;
+			std::cerr << "Error: too large number. " << std::endl;
 			isValid = false;
 		}
 		if (isValid && isValidValue(tmp) == false)
-		{
-			std::cerr << "Error: Invalid Value" << std::endl;
-			isValid = false;
-		}
-		if (isValid && errno == ERANGE)
 		{
 			std::cerr << "Error: Invalid Value" << std::endl;
 			isValid = false;
